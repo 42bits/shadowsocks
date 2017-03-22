@@ -30,23 +30,16 @@ proxyAddress = "0.0.0.0"
 socksParentProxy = "127.0.0.1:1080"
 socksProxyType = socks5
 
-chunkHighMark = 50331648
-objectHighMark = 16384
-
-serverMaxSlots = 64
-serverSlots = 16
-serverSlots1 = 32
-
 启动
 service polipo stop
 service polipo start
 service polipo restart
 
 term 输入
-http_proxy=http://localhost:1080
+export http_proxy=http://localhost:8123
 或
 ~/.bashrc
-alias hp="http_proxy=http://localhost:1080"
+alias hp="export http_proxy=http://localhost:8123"
 
 
 安装chrome
