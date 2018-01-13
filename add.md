@@ -8,12 +8,14 @@
 shadowsocks.json
 
     {
-    "server":"11.22.33.44",
-    "server_port":50003,
+    "server":"11.22.3.44",
+    "server_port":8888,
+    "local_address": "127.0.0.1",
     "local_port":1080,
-    "password":"123456",
+    "password":"xxx",
     "timeout":600,
-    "method":"aes-256-cfb"
+    "method":"aes-256-cfb",
+    "fast_open": true
     }
     
 sslocal -c /xxx/xxx/shadowsocks.json
@@ -42,13 +44,16 @@ vim /etc/polipo/config
     proxyPort = 8123
 
 启动
-service polipo stop
-service polipo start
-service polipo restart
+
+ service polipo stop
+ service polipo start
+ service polipo restart
 
 term 输入
 export http_proxy=http://localhost:8123
+
 或
+
 ~/.bashrc
 alias hp="export http_proxy=http://localhost:8123"
 
