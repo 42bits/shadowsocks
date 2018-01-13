@@ -6,16 +6,16 @@
 - apt-get install shadowsocks
 
 shadowsocks.json
----
-{
-"server":"11.22.33.44",
-"server_port":50003,
-"local_port":1080,
-"password":"123456",
-"timeout":600,
-"method":"aes-256-cfb"
-}
----
+
+    {
+    "server":"11.22.33.44",
+    "server_port":50003,
+    "local_port":1080,
+    "password":"123456",
+    "timeout":600,
+    "method":"aes-256-cfb"
+    }
+    
 sslocal -c /xxx/xxx/shadowsocks.json
 
 
