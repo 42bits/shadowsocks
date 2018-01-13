@@ -1,9 +1,12 @@
-shadowsocks安装&运行
+##shadowsocks安装&运行
 
-apt-get install shadowsocks
+- apt-get install python-pip
+- pip install shadowsocks
+- or
+- apt-get install shadowsocks
 
 shadowsocks.json
-
+---
 {
 "server":"11.22.33.44",
 "server_port":50003,
@@ -12,7 +15,7 @@ shadowsocks.json
 "timeout":600,
 "method":"aes-256-cfb"
 }
-
+---
 sslocal -c /xxx/xxx/shadowsocks.json
 
 
@@ -22,13 +25,21 @@ apt-get install polipo
 
 vim /etc/polipo/config
 
-logSyslog = true
-logFile = /var/log/polipo/polipo.log
+    logSyslog = false
+    logFile = "/var/log/polipo/polipo.log"
 
-proxyAddress = "0.0.0.0"
+    socksParentProxy = "127.0.0.1:1080"
+    socksProxyType = socks5
 
-socksParentProxy = "127.0.0.1:1080"
-socksProxyType = socks5
+    chunkHighMark = 50331648
+    objectHighMark = 16384
+
+    serverMaxSlots = 64
+    serverSlots = 16
+    serverSlots1 = 32
+
+    proxyAddress = "0.0.0.0"
+    proxyPort = 8123
 
 启动
 service polipo stop
